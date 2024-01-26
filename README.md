@@ -157,7 +157,7 @@
 	- data										
 		XXX.json    							 #将要分析的某个数据库的json文件放在experiment/data/下
 	- picture   						     #此文件夹用于存放生成的分析图
-	process.py 						       #main_code
+	main.py 						         #main_coding
 	cv_demo.py 							     #用于调试得到合适的masked图片
 	raw.png       							 #用于制作含mask的云图的原图
 	suitable_masked.png					 #raw.png在cv_demo.py中调试出来的合适的mask图
@@ -168,7 +168,7 @@
 
 #### 5, 结果分析
 
-可以参考process.py中的代码进行聊天记录的分析，本人所采用的分析结果展示如下：（此分析作为参考，可根据个人需求进行其他结果的分析）
+可以参考main.py中的代码进行聊天记录的分析，本人所采用的分析结果展示如下：（此分析作为参考，可根据个人需求进行其他结果的分析）
 
 ##### 1, 计算一天中不同聊天时段记录数量的分布   wc.calculate_24hours_records()
 
