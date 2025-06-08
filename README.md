@@ -45,23 +45,20 @@
    解决方案：
 
    - mac电脑关机
-
    - 按住电源键10s【M系列】直到出现恢复模式界面
-
    - 点击顶部菜单【ul～】，然后打开终端
-
    - 在终端中输入`csrutil disable`，以关闭系统完整性保护（SIP）
-
-     ![image-20231104212231940](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081615289.png)
-
+   
+   ![image-20231104212231940](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081617491.png)
+   
    - 在终端中输入`reboot`，然后等待重启
-
+   
    - 电脑重启后，重新在终端中执行`sudo lldb -p $(pgrep WeChat)`命令即可。（此时还是保持WeChat是打开的）
-
+   
      【正常】
-
+   
      ![image-20231104212608733](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081606814.png)
-
+   
 3. 进入lldb的子shell后，输入以下命令并回车
 
    ```bash
