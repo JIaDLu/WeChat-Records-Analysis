@@ -8,9 +8,11 @@
 ~/Library/Containers/com.tencent.xinWeChat/Data/Library/Application\ Support/com.tencent.xinWeChat/xxx/yyy/Message/*.db
 ```
 
-![image-20231104210524431](./README.assets/image-20231104210524431.png)
+![image-20231104210524431](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081605803.png)
 
-![image-20231104210649369](./README.assets/image-20231104210649369.png)
+
+
+![image-20231104210649369](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081606955.png)
 
 这里需要注意的是，如果电脑登录过多个微信账号，在`2.0b4.0.9`文件夹下，可能存在多个文件夹，需要逐个查看哪个是你要导出聊天记录的账号。可以根据修改日期进行排序，一般就是那个最近修改过的文件夹。也可以根据文件大小进行判断，**一般占用内存大的文件夹就是我们要找的文件**。
 
@@ -26,7 +28,7 @@
 
 1. 打开mac上的微信，但是不要登录！
 
-   ![image-20231104211735092](./README.assets/image-20231104211735092.png)
+   ![image-20231104211735092](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081606021.png)
 
 2. 打开终端，输入
 
@@ -50,7 +52,7 @@
 
    - 在终端中输入`csrutil disable`，以关闭系统完整性保护（SIP）
 
-     ![image-20231104212231940](./README.assets/image-20231104212231940.png)
+     ![image-20231104212231940](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081606472.png)
 
    - 在终端中输入`reboot`，然后等待重启
 
@@ -58,7 +60,7 @@
 
      【正常】
 
-     ![image-20231104212616127](./README.assets/image-20231104212616127.png)
+     ![image-20231104212608733](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081606814.png)
 
 3. 进入lldb的子shell后，输入以下命令并回车
 
@@ -78,11 +80,11 @@
 
    报错： error: invalid start address expression. 		error: address expression "$rsi" evaluation failed
 
-   ![image-20231104212838811](file:///Users/jiadong/project/WeChat/README.assets/image-20231104212838811.png?lastModify=1699104696)
+   ![image-20231104212757685](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081606314.png)
 
    解决：根据输出的内容，重新定义寄存器的位置。
 
-   ![image-20231104213047478](file:///Users/jiadong/project/WeChat/README.assets/image-20231104213047478.png?lastModify=1699104696)
+   ![image-20231104213047478](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081607125.png)
 
 7. 重新在lldb的子shell中输入以下命令：
 
@@ -90,7 +92,7 @@
    memory read --size 1 --format x --count 32 $x1
    ```
 
-   ![image-20231104213537412](./README.assets/image-20231104213537412.png)
+   ![image-20231104213429562](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081607936.png)
 
 8. 接着用python脚本来处理这串编码，将上面的输出信息复制到脚本中的`source`变量中	
 
@@ -106,7 +108,7 @@
    
    ```
 
-   ![image-20231104213901629](./README.assets/image-20231104213901629.png)
+   ![image-20231104213901629](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081608530.png)
 
 #### 3，使用sqlitebrowser打开【能连database就可以】
 
@@ -114,15 +116,15 @@
 
 汇总聊天记录的数据库：
 
-![image-20231104214329440](./README.assets/image-20231104214329440.png)
+![image-20231104214329440](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081608012.png)
 
 安装并打开软件 → 打开数据库 → 选择前面提到的形如`msg_0.db`的数据库文件 → 这时候会弹出输入密码的窗口，选择`raw key`和`SQLCipher 3 defaults` 选项 → 输入获取到的数据库密码 → 这时候可以看到db文件被正常打开了
 
-![image-20231104214523766](./README.assets/image-20231104214523766.png)
+![image-20231104214523766](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081608982.png)
 
 :+1:connected successfully
 
-![image-20231104214618960](./README.assets/image-20231104214618960.png)
+![image-20231104214618960](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081609579.png)
 
 打开数据库后，可以看到这个`msg_0.db`数据库有28张表格，每张表格就是和一个人的单聊记录或者一个群组的聊天记录。可以在软件中选择文件菜单栏 → 选择导出 → 选择表到json → 这样就可以将这个数据库的所有的聊天记录导出为json文件了
 
@@ -172,23 +174,23 @@
 
 ##### 1, 计算一天中不同聊天时段记录数量的分布   wc.calculate_24hours_records()
 
-![category](./README.assets/category.png)
+![category](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081609133.png)
 
 ##### 2，分析和对方的聊天记录总数  wc.calculate_records_count() 
 
-![count](./README.assets/count.png)
+![count](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081609712.png)
 
 ##### 3，统计聊天记录中不同类型的数量 wc.statistics_records_catalogies()
 
-![111](./README.assets/111.png)
+![111](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081609347.png)
 
 ##### 4，统计不同月份的聊天记录数 wc.analyze_monthly_records()
 
-![WechatIMG210844](./README.assets/WechatIMG210844.png)
+![WechatIMG210844](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081609756.png)
 
 ##### 5，含masked的云图  wc.masked_divide_words(firname)
 
-![image-20240126171724683](./README.assets/image-20240126171724683.png)
+![image-20240126171724683](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081609772.png)
 
 #### 6, If you have any questiones, please contact me.
 
