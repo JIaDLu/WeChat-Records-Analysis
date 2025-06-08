@@ -52,7 +52,7 @@
 
    - 在终端中输入`csrutil disable`，以关闭系统完整性保护（SIP）
 
-     
+     ![image-20231104212231940](https://cdn.jsdelivr.net/gh/JIaDLu/BlogImg/img/202506081615289.png)
 
    - 在终端中输入`reboot`，然后等待重启
 
